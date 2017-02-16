@@ -2,9 +2,9 @@
   "name": "merge-master-into-all",
   "version": "0.1.0",
   "description": "Merge master into all other git branches.",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "bin": {
-    "merge-master-into-all": "src/index.js"
+    "merge-master-into-all": "lib/index.js"
   },
   "scripts": {
     "build": "babel --presets=es2015 src -d lib",
