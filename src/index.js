@@ -30,4 +30,4 @@ branches.forEach(branch => {
 	console.log()
 })
 
-spawnSync(`git`, [`checkout`, `master`], { stdio: 'inherit' })
+spawnSync(`git`, [`checkout`, currentBranch], { stdio: 'inherit' })
