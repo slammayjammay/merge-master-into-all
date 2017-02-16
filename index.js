@@ -1,8 +1,9 @@
+const execSync = require('child_process').execSync
+const spawnSync = require('child_process').spawnSync
+
 /**
  * NOTE: This is heavily based on `git branch` output.
  */
-
-const execSync = require('child_process').execSync
 
 let output = execSync('git branch').toString('utf8')
 
@@ -22,6 +23,9 @@ branches.splice(branches.indexOf('master'), 1)
 
 // merge master into each branch
 branches.forEach(branch => {
-	execSync(`git checkout ${branch}`)
-	execSync(`git merge master`)
+	spawnSync('git', ['checkout', branch], { stdio: 'inherit' })
+	spawnSync('git', ['merge', 'master'], { stdio: 'inherit' })
+	console.log()
 })
+
+spawnSync(`git`, [`checkout`, `master`], { stdio: 'inherit' })
