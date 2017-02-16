@@ -1,0 +1,26 @@
+{
+  "name": "merge-master-into-all",
+  "version": "0.1.0",
+  "description": "Merge master into all other git branches.",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "build": "babel --presets=es2015 src -d lib",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "git",
+    "merge",
+    "master"
+  ],
+  "author": "Scott McKenzie",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slammayjammay/merge-master-into-all"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0"
+  }
+}
