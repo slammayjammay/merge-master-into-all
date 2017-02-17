@@ -29,8 +29,12 @@ branches.splice(branches.indexOf('master'), 1)
 // merge master into each branch
 branches.forEach(branch => {
 	spawnSync('git', ['checkout', branch], { stdio: 'inherit' })
-	spawnSync('git', ['merge', 'master'], { stdio: 'inherit' })
-	console.log()
+	let mergeStatus = spawnSync('git', ['merge', 'master'], { stdio: 'inherit' })
+
+	// exit if there is a merge error
+	if (mergeStatus.stderr.toString('utf8').length > 0) {
+		process.exit()
+	}
 })
 
 spawnSync(`git`, [`checkout`, currentBranch], { stdio: 'inherit' })
