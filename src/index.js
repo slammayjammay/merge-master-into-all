@@ -32,7 +32,7 @@ branches.forEach(branch => {
 	let mergeStatus = spawnSync('git', ['merge', 'master'], { stdio: 'inherit' })
 
 	// exit if there is a merge error
-	if (mergeStatus.stderr.toString('utf8').length > 0) {
+	if (mergeStatus.stderr && mergeStatus.stderr.toString('utf8').length > 0) {
 		process.exit()
 	}
 })
